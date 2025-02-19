@@ -1,0 +1,559 @@
+/* Base styles */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #6b7280;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+ }
+ 
+ body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    color: var(--gray-700);
+ }
+ 
+ /* Premium Input Styling */
+ .premium-input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.5rem;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.875rem;
+    color: var(--gray-700);
+ }
+ 
+ .premium-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+ }
+ 
+ .premium-input:disabled {
+    background-color: var(--gray-50);
+    cursor: not-allowed;
+ }
+ 
+ .premium-input.error {
+    border-color: var(--danger-color);
+    background-color: #fff5f5;
+ }
+ 
+ .premium-input.success {
+    border-color: var(--success-color);
+    background-color: #f0fdf4;
+ }
+ 
+ /* Mode Switch Buttons */
+ .mode-switch-btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ 
+ .mode-switch-btn.active {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+ }
+ 
+ /* Action Buttons */
+ .action-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    border: none;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+ }
+ 
+ .calculate {
+    background: linear-gradient(to right, var(--primary-color), #6366f1);
+    color: white;
+ }
+ 
+ .calculate:hover {
+    background: linear-gradient(to right, var(--primary-hover), #4f46e5);
+    transform: translateY(-1px);
+ }
+ 
+ .clear {
+    background: linear-gradient(to right, var(--secondary-color), #4b5563);
+    color: white;
+ }
+ 
+ .clear:hover {
+    background: linear-gradient(to right, #4b5563, #374151);
+    transform: translateY(-1px);
+ }
+ 
+ .random {
+    background: linear-gradient(to right, var(--success-color), #059669);
+    color: white;
+ }
+ 
+ .random:hover {
+    background: linear-gradient(to right, #059669, #047857);
+    transform: translateY(-1px);
+ }
+ 
+ .export {
+    background: linear-gradient(to right, #8b5cf6, #6366f1);
+    color: white;
+ }
+ 
+ .export:hover {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+    transform: translateY(-1px);
+ }
+ 
+ /* Table Styling */
+ .premium-header {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-600);
+    background-color: var(--gray-50);
+    border-bottom: 2px solid var(--gray-200);
+ }
+ 
+ .premium-cell {
+    padding: 1rem;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--gray-200);
+    transition: background-color 0.15s ease-in-out;
+ }
+ 
+ /* Result Cells */
+ .result {
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+ }
+ 
+ .result.updated {
+    animation: highlight 1s ease-out;
+ }
+ 
+ @keyframes highlight {
+    0% { background-color: rgba(79, 70, 229, 0.2); }
+    100% { background-color: transparent; }
+ }
+ 
+ /* Modal Styling */
+ .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+ }
+ 
+ .modal-content {
+    position: relative;
+    background-color: white;
+    margin: 5% auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+ }
+ 
+ .close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+ }
+ 
+ .close:hover {
+    transform: rotate(90deg);
+ }
+ 
+ /* Responsive Design */
+ @media screen and (max-width: 1024px) {
+    .table-container {
+        margin: 0 -1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .premium-cell, .premium-header {
+        padding: 0.75rem;
+        white-space: nowrap;
+    }
+ 
+    .action-button {
+        padding: 0.625rem 1rem;
+        min-width: 120px;
+    }
+ }
+ 
+ @media screen and (max-width: 768px) {
+    .action-button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+ 
+    .premium-input {
+        font-size: 16px;
+    }
+ 
+    .premium-cell:first-child {
+        min-width: 200px;
+    }
+ }
+ 
+ /* Print Styles */
+ @media print {
+    body {
+        background-color: white;
+    }
+    
+    .action-button, .mode-switch-btn {
+        display: none;
+    }
+    
+    .premium-input {
+        border: none;
+        padding: 0;
+    }
+    
+    .premium-cell, .premium-header {
+        border-color: #000;
+    }
+ 
+    .modal {
+        display: none !important;
+    }
+ }
+ 
+ /* Animation for Mode Switch */
+ .mode-switch-btn {
+    position: relative;
+    overflow: hidden;
+ }
+ 
+ .mode-switch-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+ }
+ 
+ .mode-switch-btn:hover::after {
+    left: 0;
+ }
+ 
+ /* Touch Device Optimization */
+ @media (hover: none) {
+    .premium-input, .action-button, .mode-switch-btn {
+        min-height: 44px;
+    }
+ }
+ 
+ /* Custom Scrollbar */
+ ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+ }
+ 
+ ::-webkit-scrollbar-track {
+    background: var(--gray-100);
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: 4px;
+ }
+ 
+ ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-400);
+ }
+
+ /* Мобильная оптимизация */
+@media screen and (max-width: 768px) {
+    /* Основной контейнер */
+    .max-w-8xl {
+        padding: 0.5rem !important;
+    }
+    
+    /* Шапка */
+    .bg-gradient-to-r {
+        padding: 1rem !important;
+    }
+    
+    h1.text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    /* Контейнеры даты и периода */
+    .date-container, .period-container {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Кнопки */
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .action-button {
+        width: 100%;
+        font-size: 0.875rem;
+        padding: 0.75rem !important;
+        min-height: 44px; /* Оптимизация для тач-устройств */
+    }
+    
+    /* Таблица */
+    .overflow-x-auto {
+        margin: 0 -0.5rem;
+        padding: 0 0.5rem;
+        position: relative;
+    }
+    
+    table {
+        font-size: 0.875rem;
+    }
+    
+    .premium-cell {
+        padding: 0.5rem;
+    }
+    
+    /* Первая колонка (описание) */
+    .premium-cell:first-child {
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 10;
+        box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+        min-width: 200px;
+        max-width: 200px;
+    }
+    
+    /* Инпуты */
+    .premium-input {
+        padding: 0.5rem;
+        font-size: 16px; /* Предотвращает зум на iOS */
+        min-height: 44px;
+    }
+    
+    /* Модальное окно */
+    .modal-content {
+        width: 95%;
+        margin: 2.5% auto;
+    }
+    
+    /* Улучшение читаемости в мобильной версии */
+    .pl-8 {
+        padding-left: 0.5rem !important;
+    }
+    
+    .pl-12 {
+        padding-left: 1rem !important;
+    }
+}
+
+/* Дополнительные оптимизации для очень маленьких экранов */
+@media screen and (max-width: 375px) {
+    .premium-cell:first-child {
+        min-width: 180px;
+        max-width: 180px;
+        font-size: 0.8125rem;
+    }
+    
+    .premium-input {
+        padding: 0.375rem;
+    }
+    
+    .premium-cell {
+        padding: 0.375rem;
+    }
+}
+
+/* Оптимизация для ландшафтной ориентации */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+    .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Улучшения для тач-устройств */
+@media (hover: none) {
+    /* Увеличиваем размер интерактивных элементов */
+    .mode-switch-btn,
+    .action-button,
+    .premium-input,
+    .close {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Убираем hover эффекты */
+    tr:hover .premium-cell {
+        background-color: inherit;
+    }
+    
+    /* Улучшаем скролл на тач-устройствах */
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* Стили для ячеек с длинным текстом */
+    .premium-cell {
+        white-space: normal !important; /* Разрешаем перенос текста */
+        min-width: unset !important; /* Убираем минимальную ширину */
+        max-width: unset !important; /* Убираем максимальную ширину */
+        font-size: 0.75rem !important; /* Уменьшаем размер шрифта */
+        line-height: 1.2 !important; /* Уменьшаем межстрочный интервал */
+        padding: 0.5rem !important;
+    }
+
+    /* Первая ячейка (описание) */
+    .premium-cell:first-child {
+        position: sticky;
+        left: 0;
+        background: white;
+        z-index: 10;
+        box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+        width: 160px !important; /* Фиксированная ширина */
+        min-width: 160px !important;
+        max-width: 160px !important;
+        overflow-wrap: break-word; /* Разрешаем перенос длинных слов */
+        word-wrap: break-word;
+        hyphens: auto; /* Включаем переносы */
+    }
+
+    /* Остальные ячейки */
+    .premium-cell:not(:first-child) {
+        min-width: 60px !important;
+        max-width: 80px !important;
+        width: auto !important;
+    }
+
+    /* Контейнер таблицы */
+    .overflow-x-auto {
+        max-width: 100vw;
+        margin: 0 -0.5rem;
+        padding: 0 0.5rem;
+    }
+
+    /* Инпуты в ячейках */
+    .premium-input {
+        min-width: 60px !important;
+        max-width: 100% !important;
+        padding: 0.25rem !important;
+    }
+}
+
+/* Для ещё меньших экранов */
+@media screen and (max-width: 375px) {
+    .premium-cell:first-child {
+        width: 140px !important;
+        min-width: 140px !important;
+        max-width: 140px !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Оптимизация высоты строк */
+.premium-cell {
+    padding: 0.5rem !important; /* Уменьшаем padding */
+    line-height: 1.2 !important; /* Уменьшаем межстрочный интервал */
+}
+
+/* Оптимизация инпутов */
+.premium-input {
+    padding: 0.25rem !important;
+    height: 1.75rem !important; /* Фиксированная меньшая высота */
+    min-height: unset !important;
+}
+
+/* Оптимизация заголовков таблицы */
+.premium-header {
+    padding: 0.5rem !important;
+    line-height: 1.2 !important;
+}
+
+/* Оптимизация строк таблицы */
+tr {
+    height: auto !important;
+}
+
+/* Уменьшение отступов в подкатегориях */
+tr.subcategory-1 .premium-cell,
+tr.subcategory-2 .premium-cell {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+
+/* Оптимизация для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .premium-cell {
+        padding: 0.25rem !important;
+    }
+    
+    .premium-input {
+        height: 1.5rem !important;
+        min-height: 1.5rem !important;
+    }
+}
+
+/* Общая оптимизация отступов */
+.p-6 {
+    padding: 1rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 1rem !important;
+}
+
+.gap-3 {
+    gap: 0.5rem !important;
+}
